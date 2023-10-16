@@ -4,8 +4,9 @@ const rMost=body.querySelector(".rightMostDiv");
 const sArea=body.querySelector(".sortingArea");
 const arrLenSelector=body.querySelector(".numS");
 let arrLen=150;
+const barDom=[];
 generateItems();
-const barArray=[];
+
 
 
 
@@ -16,8 +17,7 @@ function getArrLen(){
 
 
 function deleteAllItems(){
-  const itemArr=sArea.querySelectorAll(".eachValue");
-  for(const elem of itemArr){
+  for(const elem of barDom){
     elem.remove();
   }
 }
@@ -27,11 +27,12 @@ function generateItems(){
     const item=document.createElement("div");
     item.style.backgroundColor="blue";
     item.style.height=heightGenerator()+"px";
-    item.style.width=(800/arrLen)+"px";
+    item.style.width=(900/(arrLen*1.2))+"px";
     item.style.padding="0px";
-    item.style.margin="2px";
+    item.style.margin=(200/(arrLen*1.2))+"px";
     item.style.display="inline-block"
     item.className="eachValue"
+    barDom.push(item);
     sArea.appendChild(item);
   }
 }
