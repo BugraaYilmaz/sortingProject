@@ -48,7 +48,16 @@ function generateBars(){
 }
 
 function bubbleSort(){
+  let tempHeight;
   
+  for(let i=0;i<(arrLen-1);i++){
+    if(barDom[i].style.height>barDom[i+1].style.height){
+      tempHeight=barDom[i].style.height;
+      barDom[i].style.height=barDom[i+1].style.height;
+      barDom[i+1].style.height=tempHeight;
+    }
+  }
+
 }
 
 
