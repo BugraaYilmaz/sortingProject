@@ -31,7 +31,8 @@ function generateItems(){
     item.style.width=(900/(arrLen*1.2))+"px";
     item.style.padding="0px";
     item.style.margin=(200/(arrLen*1.2))+"px";
-    item.style.display="inline-block"
+    item.style.display="inline-block";
+    item.style.zIndex="1";
     barDom.push(item);
     sArea.appendChild(item);
   }
@@ -49,17 +50,40 @@ function generateBars(){
 
 function bubbleSort(){
   let tempHeight;
-  
-  for(let i=0;i<(arrLen-1);i++){
-    if(barDom[i].style.height>barDom[i+1].style.height){
-      tempHeight=barDom[i].style.height;
-      barDom[i].style.height=barDom[i+1].style.height;
-      barDom[i+1].style.height=tempHeight;
+  let sortFlag=1;
+  while(sortFlag){
+    for(let i=0;i<(arrLen-1);i++){
+      if(parseFloat(barDom[i].style.height)>parseFloat(barDom[i+1].style.height)){
+
+        //anomaly found
+          barDom[i].style.backgroundColor="red";
+          barDom[i+1].style.backgroundColor="red";
+        //Swapping
+          tempHeight=barDom[i].style.height;
+          barDom[i].style.height=barDom[i+1].style.height;
+          barDom[i+1].style.height=tempHeight;
+        //Color change again
+          barDom[i].style.backgroundColor="lightblue";
+          barDom[i+1].style.backgroundColor="lightblue";
+      }
+    }
+    sortFlag=0;
+    for(let i=0;i<(arrLen-1);i++){
+      if(parseFloat(barDom[i].style.height)>parseFloat(barDom[i+1].style.height)){
+        sortFlag=1;
+        break;
+      }
+      else{
+        barDom[i].style.backgroundColor="green";
+        barDom[i+1].style.backgroundColor="green";
+      }
     }
   }
+  
 
 }
 
 
 
 arrLenSelector.addEventListener("click",generateBars);
+sortButton.addEventListener("click",bubbleSort);
