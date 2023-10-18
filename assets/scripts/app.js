@@ -3,6 +3,7 @@ const sortButton=body.querySelector("button");
 const rMost=body.querySelector(".rightMostDiv");
 const sArea=body.querySelector(".sortingArea");
 const arrLenSelector=body.querySelector(".numS");
+const dropDownDesc=body.querySelector(".dropDown");
 let arrLen=150;
 const barDom=[];
 generateItems();
@@ -90,8 +91,12 @@ async function bubbleSort(){
   
 
 }
-
+function sortDecision(){
+  if(dropDownDesc.value==1){
+    bubbleSort();
+  }
+}
 
 
 arrLenSelector.addEventListener("click",generateBars);
-sortButton.addEventListener("click",bubbleSort);
+sortButton.addEventListener("click",sortDecision);
