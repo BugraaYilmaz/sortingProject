@@ -48,7 +48,11 @@ function generateBars(){
   generateItems();
 }
 
-function bubbleSort(){
+function sleep(ms) {
+  return new Promise(resolve => setTimeout(resolve, ms));
+}
+
+async function bubbleSort(){
   let tempHeight;
   let sortFlag=1;
   while(sortFlag){
@@ -58,13 +62,16 @@ function bubbleSort(){
         //anomaly found
           barDom[i].style.backgroundColor="red";
           barDom[i+1].style.backgroundColor="red";
+          await sleep(1);
         //Swapping
           tempHeight=barDom[i].style.height;
           barDom[i].style.height=barDom[i+1].style.height;
           barDom[i+1].style.height=tempHeight;
+          await sleep(1);
         //Color change again
           barDom[i].style.backgroundColor="lightblue";
           barDom[i+1].style.backgroundColor="lightblue";
+          await sleep(1);
       }
     }
     sortFlag=0;
