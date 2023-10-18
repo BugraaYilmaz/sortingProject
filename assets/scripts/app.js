@@ -83,6 +83,7 @@ async function bubbleSort(){
       else{
         barDom[i].style.backgroundColor="green";
         barDom[i+1].style.backgroundColor="green";
+        await stopThread(10);
       }
     }
   }
