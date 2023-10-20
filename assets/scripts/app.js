@@ -91,7 +91,7 @@ async function bubbleSort(){
   
 
 }
-function selectionSort(){
+async function selectionSort(){
   for(let lowerBorder=0; lowerBorder<(barDom.length-1);lowerBorder++){
     let lowerValue=1000;
     let lowerValueIndex;
@@ -99,13 +99,19 @@ function selectionSort(){
     for(let i=lowerBorder;i<barDom.length;i++){
       if(parseFloat(barDom[i].style.height)<lowerValue){
         lowerValue=parseFloat(barDom[i].style.height);
+        await stopThread(20);
         lowerValueIndex=i;
       }
     }
     //swap
+    barDom[lowerBorder].style.backgroundColor="blue";
+    barDom[lowerValueIndex].style.backgroundColor="blue";
+    await stopThread(20);
     tempValue=barDom[lowerBorder].style.height;
     barDom[lowerBorder].style.height=barDom[lowerValueIndex].style.height;
     barDom[lowerValueIndex].style.height=tempValue;
+    barDom[lowerBorder].style.backgroundColor="green";
+    await stopThread(20);
   }
 
 }
