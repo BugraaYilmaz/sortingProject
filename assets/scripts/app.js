@@ -104,15 +104,17 @@ async function selectionSort(){
       }
     }
     //swap
-    barDom[lowerBorder].style.backgroundColor="blue";
-    barDom[lowerValueIndex].style.backgroundColor="blue";
-    await stopThread(20);
-    tempValue=barDom[lowerBorder].style.height;
-    barDom[lowerBorder].style.height=barDom[lowerValueIndex].style.height;
-    barDom[lowerValueIndex].style.height=tempValue;
-    barDom[lowerBorder].style.backgroundColor="lightblue";
-    barDom[lowerValueIndex].style.backgroundColor="#FAF0E6"
-    await stopThread(20);
+    if(lowerBorder!=lowerValueIndex){
+      barDom[lowerBorder].style.backgroundColor="blue";
+      barDom[lowerValueIndex].style.backgroundColor="blue";
+      await stopThread(20);
+      tempValue=barDom[lowerBorder].style.height;
+      barDom[lowerBorder].style.height=barDom[lowerValueIndex].style.height;
+      barDom[lowerValueIndex].style.height=tempValue;
+      barDom[lowerValueIndex].style.backgroundColor="#FAF0E6"
+      barDom[lowerBorder].style.backgroundColor="lightblue";
+      await stopThread(20);
+    }
   }
   for(let i=0;i<(barDom.length-1);i++){
     if(parseFloat(barDom[i].style.height)<parseFloat(barDom[i+1].style.height)){
