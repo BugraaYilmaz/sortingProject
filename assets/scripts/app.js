@@ -110,10 +110,18 @@ async function selectionSort(){
     tempValue=barDom[lowerBorder].style.height;
     barDom[lowerBorder].style.height=barDom[lowerValueIndex].style.height;
     barDom[lowerValueIndex].style.height=tempValue;
-    barDom[lowerBorder].style.backgroundColor="green";
+    barDom[lowerBorder].style.backgroundColor="lightblue";
+    barDom[lowerValueIndex].style.backgroundColor="#FAF0E6"
     await stopThread(20);
   }
-
+  for(let i=0;i<(barDom.length-1);i++){
+    if(parseFloat(barDom[i].style.height)<parseFloat(barDom[i+1].style.height)){
+      barDom[i].style.backgroundColor="green";
+      barDom[i+1].style.backgroundColor="green";
+      await stopThread(10);
+    }
+  }
+  
 }
 function sortDecision(){
   if(dropDownDesc.value==1){
