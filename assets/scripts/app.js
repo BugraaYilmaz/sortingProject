@@ -91,9 +91,30 @@ async function bubbleSort(){
   
 
 }
+function selectionSort(){
+  for(let lowerBorder=0; lowerBorder<(barDom.length-1);lowerBorder++){
+    let lowerValue=1000;
+    let lowerValueIndex;
+    let tempValue;
+    for(let i=lowerBorder;i<barDom.length;i++){
+      if(parseFloat(barDom[i].style.height)<lowerValue){
+        lowerValue=parseFloat(barDom[i].style.height);
+        lowerValueIndex=i;
+      }
+    }
+    //swap
+    tempValue=barDom[lowerBorder].style.height;
+    barDom[lowerBorder].style.height=barDom[lowerValueIndex].style.height;
+    barDom[lowerValueIndex].style.height=tempValue;
+  }
+
+}
 function sortDecision(){
   if(dropDownDesc.value==1){
     bubbleSort();
+  }
+  else if(dropDownDesc.value==2){
+    selectionSort();
   }
 }
 
