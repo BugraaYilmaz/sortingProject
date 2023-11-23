@@ -126,12 +126,64 @@ async function selectionSort(){
   
 }
 
-function quickSort(){
-  
-  
+
+async function quickSort(firstIndex,lastIndex){
+  let pivot=lastIndex;
+  let pivotVal=barDom[pivot].style.height;
+  let i = (firstIndex-1);
+  let j = (firstIndex);
+  while(j!=pivot){
+    if(parseFloat(barDom[j].style.height)<parseFloat(pivotVal)){
+      barDom[j].style.backgroundColor="red";
+      barDom[pivot].style.backgroundColor="red";
+      await stopThread(10);
+     
+      i++;
+      barDom[i].style.backgroundColor="red";
+      await stopThread(10);
+
+      //swap new i and j
+      temp=barDom[i].style.height;
+      barDom[i].style.height=barDom[j].style.height;
+      barDom[j].style.height=temp;
+
+      barDom[i].style.backgroundColor="lightblue";
+      barDom[j].style.backgroundColor="lightblue";
+
+      barDom[pivot].style.backgroundColor="white";
+    }
+    j++;
+  }
+  i++; //when j reaches pivot,
+  temp=barDom[i].style.height;
+  barDom[i].style.height=pivotVal;
+  barDom[pivot].style.height=temp;
+  if(isArrayNotOrdered()){
+    if((i-1)!= firstIndex){
+      quickSort(firstIndex,(i-1));
+    }
+    if((i+1)!=lastIndex){
+      quickSort((i+1),lastIndex);
+    }
+  }
 }
 
-
+async function isArrayNotOrdered(){
+  for(i=0;i<(arrLen-1);i++){
+    if(parseFloat(barDom[i].style.height)>parseFloat(barDom[i+1].style.height)){
+      barDom[i].style.backgroundColor="lightred";
+      barDom[i+1].style.backgroundColor="lightred";
+      await stopThread(10);
+      return true;
+    }
+    else{
+      barDom[i].style.backgroundColor="green";
+      barDom[i+1].style.backgroundColor="green";
+      await stopThread(10);
+    }
+  }
+    return false;
+}
 
 
 function sortDecision(){
@@ -142,7 +194,7 @@ function sortDecision(){
     selectionSort();
   }
   else if(dropDownDesc.value==3){
-    quickSort();
+    quickSort(0,(arrLen-1));
   }
 }
 
