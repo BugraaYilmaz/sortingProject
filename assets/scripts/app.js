@@ -135,7 +135,7 @@ async function quickSort(firstIndex,lastIndex){
   while(j!=pivot){
     if(parseFloat(barDom[j].style.height)<parseFloat(pivotVal)){
       barDom[j].style.backgroundColor="red";
-      barDom[pivot].style.backgroundColor="red";
+      barDom[pivot].style.backgroundColor="orange";
       await stopThread(10);
      
       i++;
@@ -157,6 +157,7 @@ async function quickSort(firstIndex,lastIndex){
   i++; //when j reaches pivot,
   temp=barDom[i].style.height;
   barDom[i].style.height=pivotVal;
+  barDom[i].style.backgroundColor="green";
   barDom[pivot].style.height=temp;
   if(isArrayNotOrdered()){
     if((i-1)!= firstIndex){
