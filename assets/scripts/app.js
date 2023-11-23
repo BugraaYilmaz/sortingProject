@@ -76,15 +76,15 @@ async function bubbleSort(){
       }
     }
     sortFlag=0;
-    for(let i=0;i<(arrLen-1);i++){
-      if(parseFloat(barDom[i].style.height)>parseFloat(barDom[i+1].style.height)){
+    for(let i=(arrLen-1);i>0;i--){
+      if(parseFloat(barDom[i].style.height)<parseFloat(barDom[i-1].style.height)){
         sortFlag=1;
         break;
       }
       else{
         barDom[i].style.backgroundColor="green";
-        barDom[i+1].style.backgroundColor="green";
-        await stopThread(10);
+        barDom[i-1].style.backgroundColor="green";
+        await stopThread(2);
       }
     }
   }
@@ -125,12 +125,24 @@ async function selectionSort(){
   }
   
 }
+
+function quickSort(){
+  
+  
+}
+
+
+
+
 function sortDecision(){
   if(dropDownDesc.value==1){
     bubbleSort();
   }
   else if(dropDownDesc.value==2){
     selectionSort();
+  }
+  else if(dropDownDesc.value==3){
+    quickSort();
   }
 }
 
