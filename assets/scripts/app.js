@@ -160,10 +160,10 @@ async function quickSort(firstIndex,lastIndex){
   barDom[i].style.backgroundColor="green";
   barDom[pivot].style.height=temp;
   if(isArrayNotOrdered()){
-    if((i-1)!= firstIndex){
+    if((i-1)!= firstIndex && (i-1)<=lastIndex && (i-1)>firstIndex){
       quickSort(firstIndex,(i-1));
     }
-    if((i+1)!=lastIndex){
+    if((i+1)!=lastIndex && (i+1)<=lastIndex && (i+1)>firstIndex){
       quickSort((i+1),lastIndex);
     }
   }
