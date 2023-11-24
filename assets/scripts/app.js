@@ -56,7 +56,6 @@ function generateBars(){
 }
 
 function stopThread(ms) {
-  getAnimSpeed();
   return new Promise(resolve => setTimeout(resolve, (ms*animSpeed)));
 }
 
@@ -210,3 +209,4 @@ function sortDecision(){
 arrLenSelector.addEventListener("click",generateBars);
 sortButton.addEventListener("click",sortDecision);
 rerollBtn.addEventListener("click",generateBars);
+speedSlider.addEventListener("click",getAnimSpeed);
