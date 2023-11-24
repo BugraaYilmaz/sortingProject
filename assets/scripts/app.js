@@ -4,6 +4,7 @@ const rMost=body.querySelector(".rightMostDiv");
 const sArea=body.querySelector(".sortingArea");
 const arrLenSelector=body.querySelector(".numS");
 const dropDownDesc=body.querySelector(".dropDown");
+const rerollBtn=body.querySelector(".rerollButton");
 let arrLen=150;
 const barDom=[];
 generateItems();
@@ -202,3 +203,4 @@ function sortDecision(){
 
 arrLenSelector.addEventListener("click",generateBars);
 sortButton.addEventListener("click",sortDecision);
+rerollBtn.addEventListener("click",generateBars);

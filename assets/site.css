@@ -26,6 +26,27 @@ body{ margin: 0;
 .sortButton:active{
   background-color: darkgray;
 }
+.rerollButton{
+  position: absolute;
+  float: right;
+  top: 50%;
+  left:10%;
+  cursor: pointer;
+  background-color: transparent;
+  width: 50px;
+  height: 50px;
+  border-radius: 10px;
+  transform: translate(0 ,-50%);
+}
+.rerollButton:hover{
+  background-color: gray;
+}
+.rerollButton:active{
+  background-color: darkgray;
+}
+.shuffleImage{
+  height: 40px;
+}
 .sortImage{
   margin-top: 1%;
   width: 100px;
