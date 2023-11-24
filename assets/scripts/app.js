@@ -5,13 +5,18 @@ const sArea=body.querySelector(".sortingArea");
 const arrLenSelector=body.querySelector(".numS");
 const dropDownDesc=body.querySelector(".dropDown");
 const rerollBtn=body.querySelector(".rerollButton");
+const speedSlider=body.querySelector(".speedSlider");
 let arrLen=150;
+let animSpeed;
 const barDom=[];
 generateItems();
 
 
 
 
+function getAnimSpeed(){
+  animSpeed=100-speedSlider.value;
+}
 
 function getArrLen(){
   arrLen=arrLenSelector.value;
@@ -51,7 +56,8 @@ function generateBars(){
 }
 
 function stopThread(ms) {
-  return new Promise(resolve => setTimeout(resolve, ms));
+  getAnimSpeed();
+  return new Promise(resolve => setTimeout(resolve, (ms*animSpeed)));
 }
 
 async function bubbleSort(){
