@@ -1,30 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sorting Project</title>
-  <link rel="stylesheet" href="assets/site.css">
-  <script src="assets/scripts/app.js" defer></script>
-</head>
-<body style="background-color: #352F44;">
-  <header class="mainHeader">
-    <img src="assets/images/icons8-sorting-50.png" class="sortImage">
-    <select class="dropDown">
-      <option value="1">Bubble Sort</option>
-      <option value="2">Selection Sort</option>
-      <option value="3">Quick Sort</option>
-    </select>
-    <button class="sortButton">Sort</button>
-    <button class="rerollButton"><img src="assets/images/shuffle.png" class="shuffleImage"></button>
-    <input type="range" min="0" max="100" value="99" class="speedSlider">
-  </header>
-  <section class="sortingArea">
-    
-  </section>
-  <div class="numSlider">
-    <input type="range" min="50" max="250" value="150" class="numS">
-  </div>
-  <footer></footer>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sorting Project</title>
+    <link rel="stylesheet" href="assets/site.css" />
+    <script src="assets/scripts/app.js" defer></script>
+  </head>
+  <body style="background-color: #352f44">
+    <header class="mainHeader">
+      <img src="assets/images/icons8-sorting-50.png" class="sortImage" />
+      <button class="rerollButton">
+        <img src="assets/images/shuffle.png" class="shuffleImage" />
+      </button>
+      <div class="animSpeed">
+        <input type="range" min="0" max="100" value="99" class="speedSlider" />
+      </div>
+      <select class="dropDown">
+        <option value="1">Bubble Sort</option>
+        <option value="2">Selection Sort</option>
+        <option value="3">Quick Sort</option>
+      </select>
+      <button class="sortButton">Sort</button>
+    </header>
+    <section class="sortingArea"></section>
+    <div class="numSlider">
+      <input type="range" min="50" max="250" value="150" class="numS" />
+    </div>
+    <footer></footer>
+  </body>
 </html>

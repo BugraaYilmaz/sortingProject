@@ -1,5 +1,5 @@
 const body=document.querySelector('body');
-const sortButton=body.querySelector("button");
+const sortButton=body.querySelector(".sortButton");
 const rMost=body.querySelector(".rightMostDiv");
 const sArea=body.querySelector(".sortingArea");
 const arrLenSelector=body.querySelector(".numS");
@@ -209,4 +209,4 @@ function sortDecision(){
 arrLenSelector.addEventListener("click",generateBars);
 sortButton.addEventListener("click",sortDecision);
 rerollBtn.addEventListener("click",generateBars);
-speedSlider.addEventListener("click",getAnimSpeed);
+speedSlider.addEventListener("input",getAnimSpeed);
